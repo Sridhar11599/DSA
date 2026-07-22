@@ -1,6 +1,33 @@
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+/*
+Pseudo code:
+1. Compute the length of two strings indexA and indexB
+2. initialize carry to 0
+3. Initialize a string builder to append the results to the string
+4. Iterate over given strings from last index to the first index
+5. Compute the ascii value for each character in string a and String b
+    Ex: "11"
+    ascii value = ascii('1') - ascii('0) => 49 - 48 = 1
+    If the index goes below the bounds assign it to 0 =>
+    Ex: 11 + 1 will be computed as 11+01 = 100
+
+6. Compute the Sum the digits
+
+// Note: The sum or addition of binary digits will always result in 2 or 1 which can further manipulated
+with % and / operation
+
+7. Compute reminder and append it to the string
+    Ex: adding 1 + 1 = 2 => 2%2 = 0
+        adding 1 + 0 = 1 => 1%2 = 1
+8. Compute carry by sum/2
+    Ex: 1 + 1 = 2/2 = 1
+        1 + 0 = 1 => 0
+9. Decrement the index of string a and b
+10. Revert the result string as return the result
+ */
+
 public class SumOfBinaryString {
 
     @Test
