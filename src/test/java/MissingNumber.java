@@ -63,6 +63,8 @@ Algorithm: Sum of Natural Numbers
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.Arrays;
+
 public class MissingNumber {
 
     @Test
@@ -107,6 +109,13 @@ public class MissingNumber {
         Assert.assertEquals(findMissingNumberExorOperator(nums),expectedOutput);
     }
 
+    @Test
+    public void findMissingNumberTesBinarySearch() {
+        int[] nums = {9,6,4,2,3,5,7,0,1};
+        int expectedOutput = 8;
+        Assert.assertEquals(findMissingNumberBinarySearch(nums),expectedOutput);
+    }
+
 
     //O(N^2)
     public int findMissingNumberBruteForce(int[] nums) {
@@ -146,5 +155,17 @@ public class MissingNumber {
             missingNumber = missingNumber ^ nums[i];
         }
         return missingNumber;
+    }
+
+    public int findMissingNumberBinarySearch(int[] nums) {
+        Arrays.sort(nums);
+        int low = 0;
+        int high = nums.length - 1;
+        while(low<=high) {
+            int mid = low + (high - low) / 2;
+            if(nums[mid] > mid) high = mid - 1;
+            else low = mid + 1;
+        }
+        return low;
     }
 }
